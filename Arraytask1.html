@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     #outer
+     {
+        height:400px;
+        width: 100%;
+        /* background-color: aqua; */
+        margin:auto;
+     }
+     #outer1
+     {
+        height:70%;
+        width: 80%;
+        /* background-color: aqua; */
+        margin:auto;
+     }
+     table
+     {
+        height:60%;
+        width:40%;
+        margin: auto;
+        text-align: center;
+        /* border: 2px solid black; */
+     }
+     table, th, td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  border-bottom:1px solid black ;
+}
+#outer2
+{
+    height: 10%;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+#tbl1 
+{
+    
+       height: 2%;
+        width: 40%;
+        text-align: center;
+        /* border-bottom:none; */   
+}
+</style>
+</head>
+<body>
+<div id="outer">
+    <div id="outer1">
+
+    </div>
+
+      
+        <div id="outer2">
+            <select id="selid">
+             <option>Select</option>
+             <option>Company </option>
+             <option>Model</option>
+             <option>Memory</option>
+             <option>Price</option>
+            </select>
+            <input type="text" id="input1">
+            <button onclick="select();">Search</button>
+            
+    </div>
+    <table id="tbl1"></table>
+</div>
+
+</body>
+<script src="Arraytask.js"></script>
+</html>
