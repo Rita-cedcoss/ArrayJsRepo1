@@ -31,9 +31,10 @@ function Add()
     
     var pricename=document.getElementById('input4').value;
     var arr={company:pname,Model:modelname, Memory:memoryname,Price:pricename};
-    array.push(arr);
+    array.splice(2, 0, arr);
+    // array.push(arr);
     populate();
-    console.log(arr);
+    // console.log(arr);
 
    
 
