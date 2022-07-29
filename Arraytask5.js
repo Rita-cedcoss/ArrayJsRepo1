@@ -48,6 +48,7 @@ function populateNext()
 
 var tempArr=[];
 var splitArr;
+
 function getPrice(sel)
 {
     for(i=0;i<arr.length;i++)
@@ -60,6 +61,18 @@ function getPrice(sel)
         }
 
 }
+function indexid(sel)
+{
+    for(i=0;i<arr.length;i++)
+       { 
+        // console.log(arr[i].company);
+          if(arr[i].company==sel.split(' ')[0])
+          {
+            return i;
+          }
+        }
+
+}
 function addProduct()
 {
     var selValue=document.getElementById('selid').value;
@@ -68,12 +81,13 @@ function addProduct()
      
     var input=document.getElementById('input1').value;
     var pprice=getPrice(selValue);
+    var arrindex=indexid(selValue);
     // console.log(input);
     splitArr=selValue.split(" ");
-     var i= existElement();
+     var index= existElement();
    
     //  alert("i"+i);
-     if(i==-1)
+     if(index==-1)
      {
        for(i=0;i<arr.length;i++)
        { 
@@ -85,28 +99,30 @@ function addProduct()
                 return alert("stock not available");
             
         }
+            
             var prodprice=input*arr[i].Price;
             
             objArr={company:selValue,quantity:input,price:prodprice};
             
             tempArr.push(objArr);
             arr[i].Quantity=parseInt(arr[i].Quantity)-parseInt(input);
+            
           }
 
-
+         
        }
        
      }
      else{
-        if(parseInt(arr[i].Quantity)<parseInt(input))
+        if(parseInt(arr[arrindex].Quantity)<parseInt(input))
         {
                 return alert("stock not available");
             
         }
         
-        tempArr[i].quantity=parseInt(tempArr[i].quantity)+parseInt(input);
-        tempArr[i].price=tempArr[i].quantity*pprice;
-        arr[i].Quantity=parseInt(arr[i].Quantity)-parseInt(input);
+        tempArr[index].quantity=parseInt(tempArr[index].quantity)+parseInt(input);
+        tempArr[index].price=tempArr[index].quantity*pprice;
+        arr[arrindex].Quantity=parseInt(arr[arrindex].Quantity)-parseInt(input);
     
             
      }     
@@ -147,6 +163,7 @@ function bill()
     //  document.getElementById('outer4').innerHTML="";
     // document.getElementById('addEle').innerHTML.style.Display="block";
     document.getElementById("addEle").style.display = "none";
+    document.getElementById("btnBill").disabled="disabled";
 
 
 
